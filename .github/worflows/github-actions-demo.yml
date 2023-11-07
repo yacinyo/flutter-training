@@ -13,7 +13,8 @@ stages:
     - test
     - deploy
 
-  image:ubuntu:latest
+
+image:ubuntu:latest
 
 job:Dart-build
   - stage:build
