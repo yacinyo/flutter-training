@@ -14,10 +14,11 @@ stages:
     - deploy
 
 
-image:ubuntu:latest
+
 
 job:Dart-build
   - stage:build
+  - runs-on: ubuntu-latest
         
       script:
       - run: dart pub get
@@ -25,19 +26,22 @@ job:Dart-build
       - run: dart analyze
 
   job:Dart-test
-       stage: test
+      stage: test
+      runs-on: ubuntu-latest
 
        script:      
          - run: dart test
 
   job:Dart-test
        stage: test
-
+      
+       runs-on: ubuntu-latest
        script:      
          - run: dart test
 
   job:Dart-deploy
     stage:deploy
+    runs-on: ubuntu-latest
     script:
      run: dart-deploy
 
