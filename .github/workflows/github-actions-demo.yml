@@ -1,0 +1,56 @@
+name: Dart
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+
+
+
+stages:
+    - build
+    - test
+    - deploy
+
+
+
+
+job:Dart-build
+  - stage:build
+  - runs-on: ubuntu-latest
+        
+      script:
+      - run: dart pub get
+      - run: dart format --output=none --set-exit-if-changed .
+      - run: dart analyze
+
+  job:Dart-test
+      stage: test
+      runs-on: ubuntu-latest
+
+       script:      
+         - run: dart test
+
+  job:Dart-test
+       stage: test
+      
+       runs-on: ubuntu-latest
+       script:      
+         - run: dart test
+
+  job:Dart-deploy
+    stage:deploy
+    runs-on: ubuntu-latest
+    script:
+     run: dart-deploy
+
+         
+  
+         
+
+
+
+         
+  
+         
